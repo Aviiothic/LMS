@@ -1,5 +1,8 @@
-const express = require('express');
-const applyCommonMiddlewares = require('./middlewares/common-middlewares');
+import { config } from 'dotenv';  // Import dotenv
+config();  // Load .env file
+import express from 'express';
+import userRoutes from './routes/user-routes.js';
+import applyCommonMiddlewares from './middlewares/common-middlewares.js';
 
 
 const app = express();
@@ -13,4 +16,7 @@ app.all('*', (req, res) => {
   res.status(404).send('OOPS! Page not found');
 });
 
-module.exports = app;
+app.use('/user', userRoutes);
+
+
+export default app;

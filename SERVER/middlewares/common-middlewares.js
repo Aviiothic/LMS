@@ -1,21 +1,27 @@
-const express = require('express');
-const path = require('path');
-const methodOverride = require('method-override');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url'; // Import required for __dirname equivalent
+import methodOverride from 'method-override';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+
+// Get __dirname equivalent in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function applyCommonMiddlewares(app) {
-    app.set('view engine', 'ejs');  //to enable server side rendering with ejs
-    app.set('views', path.join(__dirname, '..', 'views'));  //setting path for view files
-    app.use(express.json());    //to parse JSON data received in the request body
-    app.use(express.urlencoded({extended : true})); //to fetch data in req.body sent through Post method
-    app.use(methodOverride('_method')); // to use patch, put, delete methods using http requests
-    app.use(express.static('public'));  // to render static styling and pages
+    app.set('view engine', 'ejs');  // Enable server-side rendering with EJS
+    app.set('views', path.join(__dirname, '..', 'views'));  // Set path for view files
+    app.use(express.json());  // Parse JSON data in request body
+    app.use(express.urlencoded({ extended: true })); // Parse form data in req.body (POST)
+    app.use(methodOverride('_method')); // Enable PATCH, PUT, DELETE via HTTP requests
+    app.use(express.static(path.join(__dirname, '..', 'public')));  // Serve static files correctly
     app.use(cookieParser());
+
     app.use(cors({
-    origin:[process.env.FRONTEND_URL],
-    credentials: true
-  }))
+        origin: [process.env.FRONTEND_URL],
+        credentials: true
+    }));
 }
 
-module.exports = applyCommonMiddlewares;
+export default applyCommonMiddlewares;
