@@ -1,30 +1,29 @@
 import AppError from "../utils/error-util.js";
 import User from "../models/user-model.js";
 
+// Options for cookie
 const cookieOptions = {
   secure: process.env.NODE_ENV === "production" ? true : false,
   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   httpOnly: true,
 };
 
-const registerUser = async (req, res, next) => {
-  // Destructuring the necessary data from req object
-  const { fullName, email, password } = req.body;
 
-  // Check if the data is there or not, if not throw error message
+//handling regsitration of user
+const registerUser = async (req, res, next) => {
+  try{
+    const { fullName, email, password } = req.body;
+
   if (!fullName || !email || !password) {
     return next(new AppError("All fields are required", 400));
   }
 
-  // Check if the user exists with the provided email
   const userExists = await User.findOne({ email });
 
-  // If user exists send the reponse
   if (userExists) {
     return next(new AppError("Email already exists", 409));
   }
 
-  // Create new user with the given necessary data and save to DB
   const user = await User.create({
     fullName,
     email,
@@ -36,31 +35,28 @@ const registerUser = async (req, res, next) => {
     },
   });
 
-  // If user not created send message response
   if (!user) {
     return next(
       new AppError("User registration failed, please try again later", 400)
     );
   }
 
-  // Save the user object
   await user.save();
 
-  // Generating a JWT token
   const token = await user.generateJWTToken();
 
-  // Setting the password to undefined so it does not get sent in the response
   user.password = undefined;
 
-  // Setting the token in the cookie with name token along with cookieOptions
   res.cookie("token", token, cookieOptions);
 
-  // If all good send the response to the frontend
   res.status(201).json({
     success: true,
     message: "User registered successfully",
     user,
   });
+  }catch(error){
+    return next(new AppError(error.message, 500))
+  }
 };
 
 
@@ -68,18 +64,33 @@ const getProfile = async (req, res, next) => {
 }
 
 const login = async (req, res, next) => {
+  try {
     const { email, password } = req.body;
 
-    if(!email || !password){
-        return next(new AppError("All fields are required", 400));
+    if (!email || !password) {
+      return next(new AppError("All fields are required", 400));
     }
 
-    const user = await User.findOne({email}).select('+password');
+    const user = await User.findOne({ email }).select("+password");
 
-    if(!user){
-        return next(new AppError("Invalid email or password", 401));
+    if (!user || !user.comparePassword(password)) {
+      return next(new AppError("Email or password does not match", 401));
     }
-}
+
+    const token = await user.generateJWTToken();
+    user.password = undefined;
+
+    res.cookie("token", token, cookieOptions);
+
+    res.status(200).json({
+      success: true,
+      message: "User logged in successfully",
+      user,
+    });
+  } catch (error) {
+    return next(new AppError(error.message, 500));
+  }
+};
 
 const logout = async (req, res, next) => {
 }

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import bcrypt from "bcryptjs";
+import bcrypt, { compare } from "bcryptjs";
 import JWT from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema(
@@ -67,14 +67,16 @@ userSchema.pre('save', async function(next){
 
 userSchema.methods ={
     generateJWTToken: async function(){
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1473549088.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3737916110.
         return await JWT.sign({id: this._id, email: this.email, role: this.role, subscription: this.subscription}, 
             process.env.JWT_SECRET, 
             {
                 expiresIn: process.env.JWT_EXPIRY
             }
         );
+    },
+
+    comparePassword: async function(plainTextpassword){
+        return await bcrypt.compare(plainTextpasswordpassword, this.password);
     }
 }
 
