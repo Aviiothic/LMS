@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt, { compare } from "bcryptjs";
 import JWT from "jsonwebtoken";
+import crypto from "crypto";
 
 const userSchema = new mongoose.Schema(
   {
@@ -77,6 +78,20 @@ userSchema.methods ={
 
     comparePassword: async function(plainTextpassword){
         return await bcrypt.compare(plainTextpasswordpassword, this.password);
+    },
+
+    generatePasswordResetToken: async function (){
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1020371745.
+      const resetToken = crypto.randomBytes(20).toString('hex');
+
+      this.forgetPasswordToken = crypto
+          .createHash('sha256')
+          .update(resetToken)
+          .digest('hex');
+
+      this.forgetPasswordExpiry = Date.now() + 15 * 60 * 1000;  //15 mins from now
+
+      return resetToken;
     }
 }
 
