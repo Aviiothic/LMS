@@ -1,84 +1,61 @@
-Goal 1 — Core Engineering Foundations
-Objective (SMART)
+# 2026 Goals -- Anupam
 
-By Q4 2026, strengthen my development, testing, and delivery fundamentals to consistently deliver assigned sprint tasks with improved quality and estimation accuracy.
+**Role:** Application Development Associate Analyst (Fresher)\
+**Focus:** Foundations, Learning, Execution
 
-KPIs / Measurable Outcomes
+------------------------------------------------------------------------
 
-Deliver at least 85–90% of assigned sprint tasks within committed timelines
+## Goal 1 --- Core Engineering Foundations
 
-Ensure no critical production defects in assigned work
+**Objective (SMART):**\
+By Q4 2026, strengthen development, testing, and delivery fundamentals
+to improve quality and estimation consistency.
 
-Improve estimation accuracy with variance within ±20% by Q4
+**KPIs / Measurable Outcomes:** - Deliver 85--90% of sprint commitments
+within agreed timelines\
+- Maintain zero critical production defects in assigned work\
+- Improve estimation accuracy to ±20% variance by Q4\
+- Take end-to-end ownership of 2--3 small/medium features
 
-Take end-to-end ownership of 2–3 small to medium features
+------------------------------------------------------------------------
 
-✅ Fully aligned with: “Deliver assigned tasks with minimal defects” & “Improve estimation and delivery consistency.”
+## Goal 2 --- IOH Standards & Governance Compliance
 
-Goal 2 — IOH Standards Compliance & Governance
-Objective (SMART)
+**Objective (SMART):**\
+By Q4 2026, ensure all assigned IOH tasks fully comply with Cigna
+coding, review, and security standards.
 
-By Q4 2026, implement assigned IOH tasks in full alignment with Cigna coding, security, and review standards.
+**KPIs / Measurable Outcomes:** - Achieve 100% PR checklist compliance
+before review\
+- Reduce standards-related rework quarter-over-quarter\
+- Close any identified compliance gaps in assigned components\
+- Contribute documentation updates for at least 2 features
 
-KPIs / Measurable Outcomes
+------------------------------------------------------------------------
 
-Achieve 100% PR checklist compliance before review
+## Goal 3 --- Digital Delivery & Efficiency Support
 
-Reduce standards-related rework by learning from review feedback
+**Objective (SMART):**\
+By Q4 2026, contribute to digital delivery and efficiency improvements
+through incremental enhancements and workflow support.
 
-Ensure no P0/P1 compliance gaps in assigned components
+**KPIs / Measurable Outcomes:** - Deliver 15+ bug fixes or minor
+enhancements\
+- Implement 1--2 small improvement ideas (performance, refactoring,
+cleanup, or automation support)\
+- Support assigned workflow or automation improvements aligned to team
+goals
 
-Contribute to documentation updates for at least 2 features/modules
+------------------------------------------------------------------------
 
-✅ Fully aligned with: “100% standards compliance in PRs” & “Reduced dependency on rework.”
-Also lightly aligned to team governance goal.
+## Goal 4 --- Learning, AI Enablement & Professional Growth
 
-Goal 3 — Digital Delivery & Efficiency Contribution
-Objective (SMART)
+**Objective (SMART):**\
+By Q4 2026, actively strengthen technical skills and productivity
+through structured learning and mentoring participation.
 
-By Q4 2026, contribute to digital delivery and efficiency improvements through bug fixes, incremental enhancements, and small workflow optimizations.
-
-KPIs / Measurable Outcomes
-
-Contribute to 15+ bug fixes or minor enhancements
-
-Suggest and implement at least 1–2 small improvement ideas (performance, refactoring, cleanup, or automation support)
-
-Support assigned automation or workflow improvement tasks when applicable
-
-✅ Lightly aligned with team goals: process efficiency & reducing manual effort
-(But within fresher scope.)
-
-Goal 4 — Learning, AI Enablement & Certification
-Objective (SMART)
-
-By Q4 2026, actively participate in AI learning and strengthen foundational cloud knowledge to improve productivity and long-term growth.
-
-KPIs / Measurable Outcomes
-
-Complete 100% of AI learning plan
-
-Apply AI tools in development tasks and PRs where appropriate
-
-Share at least 2 knowledge-sharing insights during team discussions or pairing
-
-Complete AWS Cloud Practitioner certification by Q4 2026
-
-✅ Fully aligned with: “Complete AI learning plan” & “Demonstrate quarter over quarter skill improvement.”
-
-Goal 5 — Mentoring, Engagement & Accountability
-Objective (SMART)
-
-By Q4 2026, actively participate in mentoring programs and demonstrate improved ownership and proactive communication.
-
-KPIs / Measurable Outcomes
-
-Participate in structured mentoring with quarterly progress tracking
-
-Provide clear updates in sprint ceremonies
-
-Raise blockers within 24 hours of identification
-
-Demonstrate measurable skill improvement quarter-over-quarter
-
-✅ Directly aligned with manager’s Learning & Mentoring goal.
+**KPIs / Measurable Outcomes:** - Complete 100% of AI learning plan\
+- Apply AI tools in development tasks where appropriate\
+- Achieve AWS Cloud Practitioner certification by Q4 2026\
+- Participate in mentoring with quarterly skill progress tracking\
+- Raise blockers within 24 hours and provide consistent sprint updates
